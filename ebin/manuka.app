@@ -1,0 +1,17 @@
+{application, manuka,
+ [{description, "Short messages pub-sub application"},
+  {vsn, "0.1.0"},
+  {modules, [manuka,
+             manuka_sup,
+             manuka_lib,
+             web_sup,
+             web_svr,
+             ws_hlr,
+             message_lib]},
+  {registered, [manuka_sup,
+                web_sup,
+                web_svr]},
+  {applications, [kernel, stdlib, cowboy, jsx]},
+  {mod, {manuka,[]}},
+  {env, []}
+ ]}.

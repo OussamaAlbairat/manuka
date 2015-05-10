@@ -1,0 +1,31 @@
+
+how to talk to manuka!
+
+provider ->
+
+   start
+   send {"type":"register", "content":[{"token":"1234567"}]}
+   
+   loop send messages
+        {"type":"dispatch", 
+         "content":[{"token":"1234567", "data":"hada galik j7a!"}]}
+
+   finish
+   send {"type":"unregister", "content":[{"token":"1234567"}]}
+
+consumer ->
+  
+   start
+   send {"type":"subscribe", "content":[{"token":"1234567"}]}
+
+   handle incoming messages
+        {"type":"data", 
+         "content":{"token":"1234567",
+                    "data":"hada galik j7a!"}}
+
+   finish
+   send {"type":"unsubscribe", "content":[{"token":"1234567"}]}
+
+
+   
+
